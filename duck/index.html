@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPDUCK Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>popduck</h1>
+        <p id="target">0</p>
+        <img src="./popduck1.png" id="popduck1">
+    </div>
+
+    
+    <script>
+        window.onload = () =>{
+            let img = document.querySelector('#popduck1');
+            let counter = document.querySelector('#target');
+            let score = 0;
+            let sound = new Audio('pop.mp3');
+            let n = 0;
+            let m = 0;
+            var intro =['民國十五年本校正式成立校名為台北州立宜蘭農林學校'
+                        ,
+                        
+                            '民國三十五年台灣光復，正名為台灣省立宜蘭農業職業學校'
+                        ,
+                        
+                            '民國五十六年更名為台灣省立宜蘭農工職業學校'
+                        ,
+                        
+                            '民國五十八年更改校名為台灣省立宜蘭高級農工職業學校'
+                        ,
+                         
+                            '民國七十七年改制為國立宜蘭農工專科學校'
+                        ,
+                         
+                            '民國八十七年升格為國立宜蘭技術學院'
+                        ,
+                         
+                            '民國九十二年更名為國立宜蘭大學'
+                        
+                       ];
+            q = [
+                
+                    "民國十五年發生了甚麼?\n(a)中本聰發表白皮書\n(b)宜蘭農林學校成立"  
+                    ,"民國三十五年發生了甚麼?\n(a)人類被人工智慧取代\n(b)台灣光復",
+                    "民國五十六年發生了甚麼?\n(a)遊戲王作者逝世\n(b)我校改名為:台灣省立宜蘭農工職業學校",
+                    "民國五十八年發生了甚麼?\n(a)徐志摩歸西\n(b)我校改名為:台灣省立宜蘭高級農工職業學校",
+                    "民國七十七年發生了甚麼?\n(a)徐志摩歸西\n(b)我校改制為改制為國立宜蘭農工專科學校",
+                    "民國八十七年發生了甚麼?\n(a)徐志摩歸西/\(b)我校升格為國立宜蘭技術學院",
+                    "民國九十二年發生了甚麼?\n(a)徐志摩歸西\n(b)我校改名為:國立宜蘭大學"
+                ];
+
+            img.addEventListener('mousedown', ()=> {
+                img.src = 'popduck2.png';
+                sound.play();
+                addToCounter();
+            })
+            img.addEventListener('mouseup', ()=> {
+                img.src = 'popduck1.png';
+                if (score == 15|| score==35|| score==56||score==58||score==77||score==87||score==92){
+                u();
+                var qq =prompt(q[m]);
+                m++;
+                }
+            })
+            function addToCounter(){
+                score++;
+                counter.innerHTML = score;
+                
+            }
+            function u(){
+                 alert (intro[n]);
+                 n++;
+                
+            }
+
+        }
+    </script>
+</body>
+</html>
